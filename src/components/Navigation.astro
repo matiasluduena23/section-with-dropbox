@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+
+import downArrow from '../assets/icon-arrow-down.svg';
+import upArrow from '../assets/icon-arrow-down.svg';
+
+import todo from '../assets/icon-todo.svg';
+import calendar from '../assets/icon-calendar.svg';
+import reminders from '../assets/icon-reminders.svg';
+import planning from '../assets/icon-planning.svg';
+---
+
+<nav class="flex">
+    <ul class="items flex">
+        <li>
+            <a href="#"
+                >Features <span><Image src={downArrow} alt="arrow" /></span></a
+            >
+            <!-- options -->
+            <ul class="option-features">
+                <li>
+                    <Image src={todo} alt="todo" /><a href=""> Todo List</a>
+                </li>
+                <li>
+                    <Image src={calendar} alt="calendar" /><a href="">
+                        Calendar</a
+                    >
+                </li>
+                <li>
+                    <Image src={reminders} alt="reminders" /><a href="">
+                        Reminders</a
+                    >
+                </li>
+                <li>
+                    <Image src={planning} alt="planning" /><a href="">
+                        Planning</a
+                    >
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"
+                >Company <span><Image src={downArrow} alt="arrow" /></span></a
+            >
+            <!-- options -->
+            <ul class="option-company">
+                <li><a href="">History</a></li>
+                <li><a href="">Our Team</a></li>
+                <li><a href="">Blog</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+    <ul class="login flex">
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Register</a></li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        justify-content: space-between;
+    }
+    ul {
+        gap: 1.5rem;
+    }
+
+    li {
+    }
+
+    .items {
+        position: relative;
+    }
+
+    .option-features,
+    .option-company {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        padding: 1rem 1.5rem;
+        background-color: white;
+        box-shadow: -3px 2px 35px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    .option-features {
+        left: -65px;
+        top: 30px;
+    }
+
+    .option-company {
+        top: 30px;
+        left: 110px;
+    }
+</style>

@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.svg';
+
+import Navigation from '../components/Navigation.astro';
+---
+
+<header>
+    <figure class="logo">
+        <Image src={logo} alt="logo" />
+    </figure>
+
+    <Navigation />
+</header>
+
+<style>
+    header {
+        display: grid;
+        grid-template-columns: 150px auto;
+        margin: 1.8rem 0 5rem;
+    }
+</style>

@@ -1,5 +1,6 @@
 ---
 import '../style/global.css';
+import Header from '../components/Header.astro';
 
 import heroImgMobile from '../assets/image-hero-mobile.png';
 import heroImgDesktop from '../assets/image-hero-desktop.png';
@@ -23,7 +24,7 @@ import ClientIcons from '../components/ClientIcons.astro';
 	  
 		Login
 		Register -->
-
+        <Header />
         <main>
             <div class="col-1 flex">
                 <h1>Make <span class="line"></span> remote work</h1>
@@ -72,6 +73,13 @@ import ClientIcons from '../components/ClientIcons.astro';
                 color: var(--almost-white);
                 padding: 1rem 1.7rem;
                 border-radius: 15px;
+                border: 2px solid transparent;
+            }
+
+            a:hover {
+                background-color: var(--almost-white);
+                border: 2px solid var(--almost-black);
+                color: var(--almost-black);
             }
 
             @media (min-width: 740px) {
