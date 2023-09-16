@@ -1,0 +1,121 @@
+---
+import '../style/global.css';
+
+import heroImgMobile from '../assets/image-hero-mobile.png';
+import heroImgDesktop from '../assets/image-hero-desktop.png';
+
+import ClientIcons from '../components/ClientIcons.astro';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>section with dropbox</title>
+    </head>
+    <body>
+        <!-- Features
+		Company
+		Careers
+		About
+	  
+		Login
+		Register -->
+
+        <main>
+            <div class="col-1 flex">
+                <h1>Make <span class="line"></span> remote work</h1>
+                <p>
+                    Get your team in sync, no matter your location. Streamline
+                    processes, create team rituals, and watch productivity soar.
+                </p>
+                <a href="#">Learn more</a>
+                <ClientIcons />
+            </div>
+            <picture class="col-2">
+                <source
+                    srcset={heroImgDesktop.src}
+                    media="(min-width: 740px)"
+                />
+                <img src={heroImgMobile.src} alt="man with a laptop" />
+            </picture>
+        </main>
+
+        <style>
+            main {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .col-1 {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 4rem 1rem;
+            }
+
+            h1 {
+                font-weight: 700;
+                font-size: var(--fs-xl);
+            }
+
+            p {
+                color: var(--gray);
+                font-size: var(--fs-600);
+                line-height: 1.5;
+            }
+
+            a {
+                background-color: var(--almost-black);
+                color: var(--almost-white);
+                padding: 1rem 1.7rem;
+                border-radius: 15px;
+            }
+
+            @media (min-width: 740px) {
+                main {
+                    flex-direction: row;
+                    align-items: end;
+                    margin-inline: auto;
+                    max-width: 1100px;
+                    gap: 2rem;
+                    padding-left: 1rem;
+                }
+
+                .col-1 {
+                    padding: 0;
+                    text-align: start;
+                    align-items: start;
+                    gap: 2rem;
+                }
+
+                a {
+                    margin-bottom: 2.5rem;
+                }
+            }
+
+            @media (min-width: 992px) {
+                main {
+                    gap: 11rem;
+                }
+
+                .col-1 {
+                    gap: 3rem;
+                }
+            }
+        </style>
+
+        <script>
+            const space = document.createElement('br');
+            const span = document.querySelector('.line');
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 900) {
+                    span.appendChild(space);
+                }
+            });
+        </script>
+    </body>
+</html>

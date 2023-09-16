@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+
+import databiz from '../assets/client-databiz.svg';
+import audiophile from '../assets/client-audiophile.svg';
+
+import meet from '../assets/client-meet.svg';
+
+import maker from '../assets/client-maker.svg';
+---
+
+<div class="flex">
+    <figure>
+        <Image src={databiz} alt="databiz" />
+    </figure>
+    <figure>
+        <Image src={audiophile} alt="audiophile" />
+    </figure>
+    <figure>
+        <Image src={meet} alt="meet" />
+    </figure>
+    <figure>
+        <Image src={maker} alt="maker" />
+    </figure>
+</div>
+
+<style>
+    .flex {
+        gap: 0.5rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    figure:first-child {
+        width: 70px;
+        height: 15px;
+    }
+
+    figure:nth-child(2) {
+        width: 50px;
+        height: 25px;
+    }
+
+    figure:nth-child(3) {
+        width: 55px;
+        height: 15px;
+    }
+
+    figure:nth-child(4) {
+        width: 60px;
+        height: 18px;
+    }
+
+    @media (min-width: 740px) {
+        figure:first-child {
+            width: 90px;
+            height: 17px;
+        }
+
+        figure:nth-child(2) {
+            width: 70px;
+            height: 29px;
+        }
+
+        figure:nth-child(3) {
+            width: 75px;
+            height: 17px;
+        }
+
+        figure:nth-child(4) {
+            width: 90px;
+            height: 20px;
+        }
+    }
+</style>
