@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 import downArrow from '../assets/icon-arrow-down.svg';
-import upArrow from '../assets/icon-arrow-down.svg';
+import upArrow from '../assets/icon-arrow-up.svg';
 
 import todo from '../assets/icon-todo.svg';
 import calendar from '../assets/icon-calendar.svg';
@@ -13,11 +13,12 @@ import planning from '../assets/icon-planning.svg';
 <nav class="flex">
     <ul class="items flex">
         <li>
-            <a href="#"
-                >Features <span><Image src={downArrow} alt="arrow" /></span></a
+            <a class="item-feature" href="#"
+                >Features <span><img src={downArrow.src} alt="arrow" /></span
+                ></a
             >
             <!-- options -->
-            <ul class="option-features">
+            <ul class="option-feature">
                 <li>
                     <Image src={todo} alt="todo" /><a href=""> Todo List</a>
                 </li>
@@ -39,7 +40,7 @@ import planning from '../assets/icon-planning.svg';
             </ul>
         </li>
         <li>
-            <a href="#"
+            <a class="item-company" href="#"
                 >Company <span><Image src={downArrow} alt="arrow" /></span></a
             >
             <!-- options -->
@@ -54,7 +55,7 @@ import planning from '../assets/icon-planning.svg';
     </ul>
     <ul class="login flex">
         <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
+        <li><a class="btn-login" href="#">Register</a></li>
     </ul>
 </nav>
 
@@ -62,20 +63,18 @@ import planning from '../assets/icon-planning.svg';
     nav {
         justify-content: space-between;
     }
+
     ul {
         gap: 1.5rem;
-    }
-
-    li {
     }
 
     .items {
         position: relative;
     }
 
-    .option-features,
+    .option-feature,
     .option-company {
-        display: flex;
+        display: none;
         flex-direction: column;
         position: absolute;
         padding: 1rem 1.5rem;
@@ -83,13 +82,27 @@ import planning from '../assets/icon-planning.svg';
         box-shadow: -3px 2px 35px -5px rgba(0, 0, 0, 0.4);
     }
 
-    .option-features {
+    .option-feature.active {
+        display: flex;
         left: -65px;
         top: 30px;
     }
 
-    .option-company {
+    .option-company.active {
+        display: flex;
         top: 30px;
         left: 110px;
+    }
+
+    .btn-login {
+        border: 1px solid var(--almost-black);
+        border-radius: 15px;
+        padding: 0.8rem 1.3rem;
+    }
+
+    @media (max-width: 800px) {
+        nav {
+            display: none;
+        }
     }
 </style>

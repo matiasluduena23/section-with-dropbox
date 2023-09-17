@@ -3,13 +3,14 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.svg';
 
 import Navigation from '../components/Navigation.astro';
+import Hamburger from '../components/Hamburger.astro';
 ---
 
 <header>
     <figure class="logo">
         <Image src={logo} alt="logo" />
     </figure>
-
+    <Hamburger />
     <Navigation />
 </header>
 

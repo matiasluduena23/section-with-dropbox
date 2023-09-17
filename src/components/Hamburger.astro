@@ -1,0 +1,56 @@
+---
+
+---
+
+<div class="hamburger">
+    <span class="line"></span>
+</div>
+
+<style>
+    .hamburger {
+        display: none;
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+
+    .line {
+        cursor: pointer;
+        display: block;
+        position: relative;
+    }
+
+    .line,
+    .line::after,
+    .line::before {
+        width: 80%;
+        height: 3px;
+        margin-inline: auto;
+        background: var(--almost-black);
+    }
+
+    .line::after,
+    .line::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    .line::after {
+        top: 8px;
+    }
+
+    .line::before {
+        bottom: 8px;
+    }
+
+    @media (max-width: 800px) {
+        .hamburger {
+            display: block;
+        }
+    }
+</style>

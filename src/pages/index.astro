@@ -115,15 +115,6 @@ import ClientIcons from '../components/ClientIcons.astro';
             }
         </style>
 
-        <script>
-            const space = document.createElement('br');
-            const span = document.querySelector('.line');
-
-            window.addEventListener('resize', () => {
-                if (window.innerWidth > 900) {
-                    span.appendChild(space);
-                }
-            });
-        </script>
+        <script src="../scripts/main.js"></script>
     </body>
 </html>
