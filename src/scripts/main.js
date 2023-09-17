@@ -23,3 +23,8 @@ itemCompany.addEventListener('click', ()=> {
     optionCompany.classList.toggle('active')
 })
 
+const nav = document.querySelector('.nav')
+const hamburger = document.querySelector('.hamburger').addEventListener('click', ()=> {
+    nav.classList.toggle('expanded')
+})
+
