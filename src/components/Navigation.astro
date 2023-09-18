@@ -1,66 +1,50 @@
 ---
 import { Image } from 'astro:assets';
+import Feature from './Feature.astro';
+import Company from './Company.astro';
+import Hamburger from '../components/Hamburger.astro';
 
 import downArrow from '../assets/icon-arrow-down.svg';
 import upArrow from '../assets/icon-arrow-up.svg';
-
-import todo from '../assets/icon-todo.svg';
-import calendar from '../assets/icon-calendar.svg';
-import reminders from '../assets/icon-reminders.svg';
-import planning from '../assets/icon-planning.svg';
 ---
 
-<nav class="flex nav">
-    <ul class="items flex">
-        <li>
-            <a class="item-feature" href="#"
-                >Features <span><img src={downArrow.src} alt="arrow" /></span
-                ></a
-            >
-            <!-- options -->
-            <ul class="option-feature">
-                <li>
-                    <Image src={todo} alt="todo" /><a href=""> Todo List</a>
-                </li>
-                <li>
-                    <Image src={calendar} alt="calendar" /><a href="">
-                        Calendar</a
-                    >
-                </li>
-                <li>
-                    <Image src={reminders} alt="reminders" /><a href="">
-                        Reminders</a
-                    >
-                </li>
-                <li>
-                    <Image src={planning} alt="planning" /><a href="">
-                        Planning</a
-                    >
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a class="item-company" href="#"
-                >Company <span><Image src={downArrow} alt="arrow" /></span></a
-            >
-            <!-- options -->
-            <ul class="option-company">
-                <li><a href="">History</a></li>
-                <li><a href="">Our Team</a></li>
-                <li><a href="">Blog</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">About</a></li>
-    </ul>
-    <ul class="login flex">
-        <li><a href="#">Login</a></li>
-        <li><a class="btn-login" href="#">Register</a></li>
-    </ul>
+<nav>
+    <Hamburger />
+
+    <div class="flex primary-navigation">
+        <ul class="items flex" id="primary-navigation">
+            <li>
+                <a
+                    class="item-feature"
+                    href="#"
+                    aria-controls="option-feature"
+                    aria-label="menu option feature"
+                    aria-expanded="false"
+                    >Features <span
+                        ><img src={downArrow.src} alt="arrow" /></span
+                    ></a
+                >
+                <Feature />
+            </li>
+            <li>
+                <a class="item-company" href="#"
+                    >Company <span><Image src={downArrow} alt="arrow" /></span
+                    ></a
+                >
+                <Company />
+            </li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <ul class="login flex">
+            <li><a href="#">Login</a></li>
+            <li><a class="btn-login" href="#">Register</a></li>
+        </ul>
+    </div>
 </nav>
 
 <style>
-    nav {
+    primary-navigation {
         justify-content: space-between;
     }
 
@@ -72,28 +56,6 @@ import planning from '../assets/icon-planning.svg';
         position: relative;
     }
 
-    .option-feature,
-    .option-company {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        padding: 1rem 1.5rem;
-        background-color: var(--almost-white);
-        box-shadow: -3px 2px 35px -5px rgba(0, 0, 0, 0.4);
-    }
-
-    .option-feature.active {
-        display: flex;
-        left: -65px;
-        top: 30px;
-    }
-
-    .option-company.active {
-        display: flex;
-        top: 30px;
-        left: 110px;
-    }
-
     .btn-login {
         border: 1px solid var(--almost-black);
         border-radius: 15px;
@@ -101,18 +63,18 @@ import planning from '../assets/icon-planning.svg';
     }
 
     @media (max-width: 800px) {
-        .nav {
+        .primary-navigation {
             display: none;
             position: absolute;
             right: 0;
             top: 0;
-            left: 40%;
+            left: 50%;
             height: 100%;
             background-color: var(--almost-white);
             flex-direction: column;
             gap: 3rem;
             justify-content: start;
-            padding: 5rem 1rem;
+            padding: 6rem 1rem;
         }
 
         .items,
@@ -135,22 +97,7 @@ import planning from '../assets/icon-planning.svg';
             width: 100%;
         }
 
-        .option-feature,
-        .option-company {
-            position: static;
-            display: none;
-            box-shadow: none;
-            padding-top: 2rem;
-        }
-
-        .nav.expanded {
-            display: flex;
-        }
-        .option-feature.active {
-            display: flex;
-        }
-
-        .option-company.active {
+        .primary-navigation.active {
             display: flex;
         }
     }

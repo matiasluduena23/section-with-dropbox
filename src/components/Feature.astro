@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+
+import todo from '../assets/icon-todo.svg';
+import calendar from '../assets/icon-calendar.svg';
+import reminders from '../assets/icon-reminders.svg';
+import planning from '../assets/icon-planning.svg';
+---
+
+<ul class="option option-feature">
+    <li>
+        <Image src={todo} alt="todo" /><a href="#">Todo List</a>
+    </li>
+    <li>
+        <Image src={calendar} alt="calendar" /><a href="#">Calendar</a>
+    </li>
+    <li>
+        <Image src={reminders} alt="reminders" /><a href="#">Reminders</a>
+    </li>
+    <li>
+        <Image src={planning} alt="planning" /><a href="#">Planning</a>
+    </li>
+</ul>
+
+<style>
+    .option-feature.active {
+        display: flex;
+        gap: 1rem;
+        left: -65px;
+        top: 30px;
+    }
+
+    li {
+        display: flex;
+        justify-content: start;
+        gap: 1rem;
+    }
+    @media (max-width: 800px) {
+        .option-feature.active {
+            display: flex;
+        }
+    }
+</style>

@@ -3,21 +3,41 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo.svg';
 
 import Navigation from '../components/Navigation.astro';
-import Hamburger from '../components/Hamburger.astro';
 ---
 
 <header>
     <figure class="logo">
         <Image src={logo} alt="logo" />
     </figure>
-    <Hamburger />
+
     <Navigation />
 </header>
 
 <style>
     header {
         display: grid;
-        grid-template-columns: 150px auto;
-        margin: 1.8rem 0 5rem;
+        grid-template-columns: 120px auto;
+        align-items: center;
+        margin: 1.8rem auto;
+        max-width: 1350px;
+        width: 90%;
+        position: static;
+        z-index: 1000;
+    }
+
+    .logo {
+        padding-top: 5px;
+    }
+
+    @media (min-width: 740px) {
+        header {
+            margin-bottom: 5rem;
+        }
+    }
+
+    @media (min-width: 992px) {
+        header {
+            margin-bottom: 8rem;
+        }
     }
 </style>

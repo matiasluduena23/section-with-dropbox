@@ -1,51 +1,32 @@
 ---
-
+import { Image } from 'astro:assets';
+import iconMenu from '/assets/icon-menu.svg';
+import iconMenuClose from '/assets/icon-close-menu.svg';
 ---
 
-<div class="hamburger">
-    <span class="line"></span>
-</div>
+<button
+    class="hamburger"
+    aria-controls="primary-navigation"
+    aria-label="menu"
+    aria-expanded="false"
+>
+    <img src="/assets/icon-menu.svg" alt="logo" aria-hidden="true" />
+</button>
 
 <style>
     .hamburger {
         display: none;
         position: absolute;
+        background-color: transparent;
+        border: none;
         right: 2rem;
         top: 2rem;
-        width: 40px;
-        height: 40px;
         cursor: pointer;
         z-index: 10;
     }
 
-    .line {
-        display: block;
-        position: relative;
-    }
-
-    .line,
-    .line::after,
-    .line::before {
-        width: 80%;
-        height: 3px;
-        margin-inline: auto;
-        background: var(--almost-black);
-    }
-
-    .line::after,
-    .line::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        width: 100%;
-    }
-
-    .line::after {
-        top: 8px;
-    }
-
-    .line::before {
-        bottom: 8px;
+    [aria-expanded='true'] > img {
+        content: url('/assets/icon-close-menu.svg');
     }
 
     @media (max-width: 800px) {
